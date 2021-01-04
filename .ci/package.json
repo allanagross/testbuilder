@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "npx yarn && mocha ../test/submission.test.js"
+  },
+  "testDirs": [
+    "test"
+  ],
+  "dependencies": {
+    "chai": "^4.2.0",
+    "fast-check": "^1.21.0",
+    "mocha": "^5.2.0"
+  }
+}
