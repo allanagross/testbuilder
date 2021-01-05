@@ -22,19 +22,19 @@ const detectNetwork = (cardNumber) => {
   let cardNumArr = cardNumber.split('');
   let cardNumberArr = cardNumArr.map(num => Number(num));
   let cardName = ''
-  if(cardNumArr[1] === '8' || cardNumArr[1] === '9' && cardNumArr.length === 14){
+  if((cardNumber.slice(0, 2) === '39' || cardNumber.slice(0, 2) === '38') && (cardNumArr.length === 14)){
     cardName = "Diner's Club";
-  }else if(cardNumArr[1] === '4' || cardNumArr[1] === '7' && cardNumArr.length === 15){
+  }else if((cardNumber.slice(0, 2) === '34' || cardNumber.slice(0, 2) === '37') && (cardNumber.length === 15)){
     cardName = 'American Express';
-  }else if((cardNumArr[0] === '4') && (cardNumArr.length === 19 || cardNumArr.length === 16 || cardNumArr.length === 13)){
+  }else if((cardNumArr[0] === '4') && (cardNumber.length === 19 || cardNumArr.length === 16 || cardNumArr.length === 13)){
     cardName = 'Visa';
-  }else if((cardNumArr.slice(0, 2) === '51' || cardNumArr.slice(0, 2) === '52' || cardNumArr.slice(0, 2) === '53' || cardNumArr.slice(0, 2) === '54' || cardNumArr.slice(0, 2) === '55') && (cardNumArr.length === 16)){
-    cardName = 'Mastercard';
-  }else if(cardNumArr[0] === '6' && cardNumArr.length === 16 || cardNumArr.length === 19){
+  }else if((cardNumber.slice(0, 2) === '51' || cardNumber.slice(0, 2) === '52' || cardNumber.slice(0, 2) === '53' || cardNumber.slice(0, 2) === '54' || cardNumber.slice(0, 2) === '55') && (cardNumArr.length === 16)){
+    cardName = 'MasterCard';
+  }else if((cardNumber.slice(0, 4) === '6011') || (cardNumber.slice()) && (cardNumArr.length === 16 || cardNumArr.length === 19)){
     cardName = 'Discover';
-  }else if((cardNumArr.slice(0, 4) === '5018' || cardNumArr.slice(0, 4) === '5020' || cardNumArr.slice(0, 4) === '5038' || cardNumArr.slice(0, 4) === '6304') && (cardNumArr.length >= 12 || cardNumArr <= 19)){
+  }else if((cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' || cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') && (cardNumArr.length >= 12 || cardNumArr <= 19)){
     cardName = 'Maestro';
-  }else if((cardNumberArr.slice(0, 6) >= 622126 && cardNumberArr.slice(0, 6) <= 622925) || (cardNumberArr.slice(0, 3) >= 624 && cardNumberArr.slice(0, 3) <= 626) || (cardNumberArr.slice(0, 4) >= 6282 && cardNumberArr.slice(0, 4) <= 6288) && (cardNumberArr.length >= 16 && cardNumberArr.length <= 19)){
+  }else if((cardNumberArr.slice(0, 6).join('') >= 622126 && cardNumberArr.slice(0, 6).join('') <= 622925) || (cardNumberArr.slice(0, 3).join('') >= 624 && cardNumberArr.slice(0, 3).join('') <= 626) || (cardNumberArr.slice(0, 4).join('') >= 6282 && cardNumberArr.slice(0, 4).join('') <= 6288) && (cardNumber.length >= 16 && cardNumber.length <= 19)){
     cardName = 'China UnionPay';
   }
   return cardName;
