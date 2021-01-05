@@ -20,6 +20,7 @@
  */
 const detectNetwork = (cardNumber) => {
   let cardNumArr = cardNumber.split('');
+  let cardNumberArr = cardNumArr.map(num => Number(num));
   let cardName = ''
   if(cardNumArr[1] === '8' || cardNumArr[1] === '9' && cardNumArr.length === 14){
     cardName = "Diner's Club";
@@ -31,8 +32,10 @@ const detectNetwork = (cardNumber) => {
     cardName = 'Mastercard';
   }else if(cardNumArr[0] === '6' && cardNumArr.length === 16 || cardNumArr.length === 19){
     cardName = 'Discover';
-  }else if(cardNumArr.slice(0, 4) === '5018' || cardNumArr.slice(0, 4) === '5020' || cardNumArr.slice(0, 4) === '5038'){
-
+  }else if((cardNumArr.slice(0, 4) === '5018' || cardNumArr.slice(0, 4) === '5020' || cardNumArr.slice(0, 4) === '5038' || cardNumArr.slice(0, 4) === '6304') && (cardNumArr.length >= 12 || cardNumArr <= 19)){
+    cardName = 'Maestro';
+  }else if((cardNumberArr.slice(0, 6) >= 622126 && cardNumberArr.slice(0, 6) <= 622925) || (cardNumberArr.slice(0, 3) >= 624 && cardNumberArr.slice(0, 3) <= 626) || (cardNumberArr.slice(0, 4) >= 6282 && cardNumberArr.slice(0, 4) <= 6288) && (cardNumberArr.length >= 16 && cardNumberArr.length <= 19)){
+    cardName = 'China UnionPay';
   }
   return cardName;
 };
