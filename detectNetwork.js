@@ -36,6 +36,8 @@ const detectNetwork = (cardNumber) => {
     cardName = 'Maestro';
   }else if((cardNumberArr.slice(0, 6).join('') >= 622126 && cardNumberArr.slice(0, 6).join('') <= 622925) || (cardNumberArr.slice(0, 3).join('') >= 624 && cardNumberArr.slice(0, 3).join('') <= 626) || (cardNumberArr.slice(0, 4).join('') >= 6282 && cardNumberArr.slice(0, 4).join('') <= 6288) && (cardNumber.length >= 16 && cardNumber.length <= 19)){
     cardName = 'China UnionPay';
+  }else if((cardNumberArr.slice(0, 4).join('') === '4903' || cardNumberArr.slice(0, 4).join('') === '4905' || cardNumberArr.slice(0, 4).join('') === '4911' || cardNumberArr.slice(0, 4).join('') === '4936' || cardNumberArr.slice(0, 6).join('') === '564182' || cardNumberArr.slice(0, 6).join('') === '633110' || cardNumberArr.slice(0, 4).join('') === '6333' ||  cardNumberArr.slice(0, 4).join('') === '6759') && (cardNumberArr.length === 16 || cardNumberArr.length === 18 || cardNumberArr.length === 19)){
+    cardName = 'Switch';
   }
   return cardName;
 };

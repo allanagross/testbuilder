@@ -180,7 +180,7 @@ describe('China UnionPay', function(){
 describe('Switch', function(){
   const assert = chai.assert;
    it('has a prefix of 4903 and a length of 18', function(){
-    assert(detectNetwork('490324523615537876') === 'switch')
+    assert(detectNetwork('490324523615537876') === 'Switch')
   })
 });
 
