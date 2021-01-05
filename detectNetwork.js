@@ -19,7 +19,24 @@
  * Once you've read this, go ahead and try to implement this function, then return to the console.
  */
 const detectNetwork = (cardNumber) => {
+  let cardNumArr = cardNumber.split('');
+  let cardName = ''
+  if(cardNumArr[1] === '8' || cardNumArr[1] === '9' && cardNumArr.length === 14){
+    cardName = "Diner's Club";
+  }else if(cardNumArr[1] === '4' || cardNumArr[1] === '7' && cardNumArr.length === 15){
+    cardName = 'American Express';
+  }else if((cardNumArr[0] === '4') && (cardNumArr.length === 19 || cardNumArr.length === 16 || cardNumArr.length === 13)){
+    cardName = 'Visa';
+  }else if((cardNumArr.slice(0, 2) === '51' || cardNumArr.slice(0, 2) === '52' || cardNumArr.slice(0, 2) === '53' || cardNumArr.slice(0, 2) === '54' || cardNumArr.slice(0, 2) === '55') && (cardNumArr.length === 16)){
+    cardName = 'Mastercard';
+  }else if(cardNumArr[0] === '6' && cardNumArr.length === 16 || cardNumArr.length === 19){
+    cardName = 'Discover';
+  }else if(cardNumArr.slice(0, 4) === '5018' || cardNumArr.slice(0, 4) === '5020' || cardNumArr.slice(0, 4) === '5038'){
+
+  }
+  return cardName;
 };
+
 
 // ignore
 typeof module !== 'undefined' && (module.exports = detectNetwork);
