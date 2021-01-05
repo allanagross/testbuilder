@@ -26,18 +26,18 @@ const detectNetwork = (cardNumber) => {
     cardName = "Diner's Club";
   }else if((cardNumber.slice(0, 2) === '34' || cardNumber.slice(0, 2) === '37') && (cardNumber.length === 15)){
     cardName = 'American Express';
-  }else if((cardNumArr[0] === '4') && (cardNumber.length === 19 || cardNumArr.length === 16 || cardNumArr.length === 13)){
-    cardName = 'Visa';
+  }else if((cardNumber.slice(0, 4) === '4903' || cardNumber.slice(0, 4) === '4905' || cardNumber.slice(0, 4) === '4911' || cardNumber.slice(0, 4) === '4936' || cardNumber.slice(0, 6) === '564182' || cardNumber.slice(0, 6) === '633110' || cardNumber.slice(0, 4) === '6333' ||  cardNumber.slice(0, 4) === '6759') && (cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19)){
+    cardName = 'Switch';
   }else if((cardNumber.slice(0, 2) === '51' || cardNumber.slice(0, 2) === '52' || cardNumber.slice(0, 2) === '53' || cardNumber.slice(0, 2) === '54' || cardNumber.slice(0, 2) === '55') && (cardNumArr.length === 16)){
     cardName = 'MasterCard';
-  }else if((cardNumber.slice(0, 4) === '6011') || (cardNumber.slice()) && (cardNumArr.length === 16 || cardNumArr.length === 19)){
+  }else if((cardNumber.slice(0, 4) === '6011' || cardNumber.slice(0, 3) === '644' || cardNumber.slice(0, 3) === '645' || cardNumber.slice(0, 3) === '646' || cardNumber.slice(0, 3) === '647' || cardNumber.slice(0, 3) === '648' || cardNumber.slice(0, 3) === '649' || cardNumber.slice(0, 2) === '65') && (cardNumArr.length === 16 || cardNumArr.length === 19)){
     cardName = 'Discover';
-  }else if((cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' || cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') && (cardNumArr.length >= 12 || cardNumArr <= 19)){
+  }else if((cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' || cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') && (cardNumber.length > 11 && cardNumber.length < 20)){
     cardName = 'Maestro';
   }else if((cardNumberArr.slice(0, 6).join('') >= 622126 && cardNumberArr.slice(0, 6).join('') <= 622925) || (cardNumberArr.slice(0, 3).join('') >= 624 && cardNumberArr.slice(0, 3).join('') <= 626) || (cardNumberArr.slice(0, 4).join('') >= 6282 && cardNumberArr.slice(0, 4).join('') <= 6288) && (cardNumber.length >= 16 && cardNumber.length <= 19)){
     cardName = 'China UnionPay';
-  }else if((cardNumberArr.slice(0, 4).join('') === '4903' || cardNumberArr.slice(0, 4).join('') === '4905' || cardNumberArr.slice(0, 4).join('') === '4911' || cardNumberArr.slice(0, 4).join('') === '4936' || cardNumberArr.slice(0, 6).join('') === '564182' || cardNumberArr.slice(0, 6).join('') === '633110' || cardNumberArr.slice(0, 4).join('') === '6333' ||  cardNumberArr.slice(0, 4).join('') === '6759') && (cardNumberArr.length === 16 || cardNumberArr.length === 18 || cardNumberArr.length === 19)){
-    cardName = 'Switch';
+  }else{
+    cardName = 'Visa';
   }
   return cardName;
 };
